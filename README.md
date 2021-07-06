@@ -6,11 +6,11 @@ The Response contains the following parameters:
 
 * "UUID": String
 * "name": String
-* "legacy": bool
+* "legacy": Bool
 * "demo": Bool
 * "textures": Array
-  * "skin": null or String [URL]
-  * "cape": null or String [URL]
+  * "skin": Null or String [URL]
+  * "cape": Null or String [URL]
 * "history": Array
   * 0: Array
     * "name": String
