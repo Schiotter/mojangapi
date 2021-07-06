@@ -2,7 +2,7 @@
 
 //Can be run in a Browser or on the CLI!
 
-require 'class.mojangapi.php';
+require 'mojangapi.class.php';
 
 if(php_sapi_name() === 'cli') {
     if(empty($argv[1])) {
