@@ -46,14 +46,33 @@ class mojangapi {
     }
 
     // Support Functions
-    private function getJSON(String $URL):null|array {
+    private function getJSON(String $URL) {
 
         /**
          * @param String $URL An URL to an JSON APi
-         * @return null|Array the response as PHP-Array or null, if an error occurred
+         * @return null|Array The Response as a PHP-Array or null, if an error occurred
         */
 
-        return json_decode(file_get_contents($URL), TRUE);
+        $user_agent='Mozilla/5.0 (Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $URL);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_AUTOREFERER, false);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSLVERSION,CURL_SSLVERSION_DEFAULT);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        $error = curl_error($ch); 
+        curl_close ($ch);
+
+        if($result === '')
+            return null;
+
+        return json_decode($result, TRUE);
     }
 
     private function isValidUUID(String $UUID):bool {
@@ -139,5 +158,4 @@ class mojangapi {
             'history' => $h
         );
     }
-
 }
