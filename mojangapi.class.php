@@ -5,7 +5,7 @@ class mojangapi {
     public function getbyName(String $PlayerName = '') {
         if(!$this->isValidPlayerName($PlayerName)) return FALSE; //End if PlayerName is invalid
         $user = $this->get_UserInfos($PlayerName);
-        if($user === false) return FALSE; //Username Does not exist
+        if($user === null) return FALSE; //Username Does not exist
 
         return $this->sortedArray(
             $user,
@@ -17,7 +17,7 @@ class mojangapi {
     public function getbyUUID(String $UUID = '') {
         if(!$this->isValidUUID($UUID)) return FALSE; //End if  UUID is invalid
         $textures = $this->get_Textures($UUID);
-        if($textures === false) return FALSE; //UUID Does not exist
+        if($textures === null) return FALSE; //UUID Does not exist
 
         return $this->sortedArray(
             $this->get_UserInfos($textures['profileName']),

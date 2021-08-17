@@ -18,5 +18,10 @@ if(php_sapi_name() === 'cli') {
 
 $mapi = new mojangapi;
 $data = $mapi->getbyName($_GET['name']);
-print json_encode($data, JSON_PRETTY_PRINT);
+
+if($data === false) {
+    print "Player '" . $_GET['name'] . "' doesn't exist!";
+} else {
+    print json_encode($data, JSON_PRETTY_PRINT);
+}
 ?>
