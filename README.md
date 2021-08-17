@@ -1,4 +1,5 @@
 # Mojang API
+
 A basic php script combining mojang endpoints together into one
 
 Thats basicaly it, is all in one file as class mojangapi, if using in php you can use the php-array otherwhise, i suggest to use json as format of transport.
@@ -11,7 +12,7 @@ The Response contains the following parameters:
 * "textures": Array
   * "skin": Null or String [URL]
   * "cape": Null or String [URL]
-* "history": Array
+* "history": Object
   * 0: Array
     * "name": String
     * "time": Null or String
