@@ -18,4 +18,4 @@ The Response contains the following parameters:
     * "time": Null or String
     * "timestamp": Null or Int
 
-If you want to try it yourself, you could obviously use your own Minecraft Name or "iJevin". His Character is perfect for this exampe, because he already change his Name, got a Cape and a custom Skin.
+If you want to try it yourself, you could obviously use your own Minecraft Name or mine "SchlotterMC". This Character is perfect for this exampe.
